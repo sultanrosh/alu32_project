@@ -112,3 +112,51 @@ module alu32 (
     end
 
 endmodule
+
+
+
+
+
+// Aha! Moment #1: Carry-out captured with concatenation
+// Verilog allows us to pack the carry-out and result together like this:
+// {carry_out, sum} = a + b; ensures we don't lose the 33rd bit of the addition
+//assign {carry_add, sum} = a + b;
+
+// Aha! Moment #2: Overflow and carry-out are different!
+// Carry-out is for unsigned numbers, overflow is for signed ones (like when adding 2 large positives gives a negative)
+//assign overflow = (a[31] == b[31]) && (sum[31] != a[31]);
+
+// Aha! Moment #3: Signed arithmetic uses the MSB as a sign bit
+// So when we detect overflow, we must compare MSBs to see if the result "flipped signs"
+//assign signed_overflow = (a[31] == b[31]) && (result[31] != a[31]);
+
+// Aha! Moment #4: Concatenation isn't just syntax—it’s needed to pack carry and result
+// It ensures nothing gets lost when results are wider than 32 bits
+
+// Aha! Moment #5: Why 32-bit ALU?
+// Because many CPUs use 32-bit registers and instructions, so the ALU must support that width
+
+// Aha! Moment #6: ALU outputs drive CPU decisions
+// Zero and carry_out flags are used by CPUs for branching, flag registers, etc.
+
+//assign zero = (result == 32'b0); // Aha! Moment #7: Zero flag helps CPU know if a == b, or if result is zero
+
+// Aha! Moment #8: Opcode controls ALU operation
+// Just like instruction decoders, the opcode selects whether we add, subtract, AND, etc.
+//always_comb begin
+//    case (opcode)
+//        5'b00000: result = a + b;       // ADD
+//        5'b00001: result = a - b;       // SUB
+//        5'b00010: result = a & b;       // AND
+//        // ...
+//    endcase
+//end
+
+// Aha! Moment #9: Bit shifts explained
+// Right shifting (a >> b[4:0]) moves bits right and pads with zeros
+// Left shifting (a << b[4:0]) moves bits left and introduces zeros on the right
+
+// Aha! Moment #10: Signed arithmetic needs $signed
+// To correctly perform arithmetic shifts or comparisons, we must cast operands as signed
+assign signed_less = ($signed(a) < $signed(b)); // compares using two's complement rules
+
