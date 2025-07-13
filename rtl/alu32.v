@@ -158,5 +158,5 @@ endmodule
 
 // Aha! Moment #10: Signed arithmetic needs $signed
 // To correctly perform arithmetic shifts or comparisons, we must cast operands as signed
-assign signed_less = ($signed(a) < $signed(b)); // compares using two's complement rules
+//assign signed_less = ($signed(a) < $signed(b)); // compares using two's complement rules
 

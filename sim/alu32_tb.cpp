@@ -17,7 +17,7 @@ void test_op(Valu32* alu, VerilatedVcdC* tfp, uint32_t a, uint32_t b, uint8_t op
 
     alu->eval();                     // Simulate logic
     tfp->dump(main_time);           // Dump waveform at current time
-    main_time += 1000;              // Increase simulation time (e.g., 1ns if timescale is 1ps)
+    main_time += 1000000;              // Increase simulation time (e.g., 1ns if timescale is 1ps)
 
     // Print results to console
     std::cout << "OP " << int(opcode)
