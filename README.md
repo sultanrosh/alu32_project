@@ -147,10 +147,9 @@ void test_op(...) {
 
 ## GTKWave Screenshot & Explanation
 
-### Image File Path
+### GTKWave Output (Rendered from simulation)
 
-```
-C:\Users\kouro\OneDrive\Desktop\alu32_project results\gtkwave_output.png
+![GTKWave Output](img/gtkwave_output.png)
 ```
 
 ### Description
@@ -164,10 +163,9 @@ C:\Users\kouro\OneDrive\Desktop\alu32_project results\gtkwave_output.png
 
 ## Terminal Output Screenshot & Explanation
 
-### Image File Path
+### Terminal Output Snapshot
 
-```
-C:\Users\kouro\OneDrive\Desktop\alu32_project results\terminal_output.png
+![Terminal Output](img/terminal_output.png)
 ```
 
 ### Description
@@ -351,5 +349,4 @@ Then run the testbench:
 - This README combines setup instructions, Verilog syntax breakdowns, testbench logic, and squiggly-line fixes
 - All example waveforms and terminal outputs are explained for your GTKWave simulation
 - VSCode IntelliSense issues are resolved using proper JSON include paths
-
 
