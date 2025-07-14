@@ -149,7 +149,8 @@ void test_op(...) {
 
 ### GTKWave Output (Rendered from simulation)
 
-![GTKWave Output](img/gtkwave_output.png)
+<img width="1918" height="1017" alt="GTKWave" src="https://github.com/user-attachments/assets/8a787913-9a3b-4870-bac7-5b8e35528bc5" />
+
 ```
 
 ### Description
@@ -165,7 +166,8 @@ void test_op(...) {
 
 ### Terminal Output Snapshot
 
-![Terminal Output](img/terminal_output.png)
+<img width="762" height="285" alt="terminal" src="https://github.com/user-attachments/assets/783e3526-95df-4ed4-8547-6326a4d22ec3" />
+
 ```
 
 ### Description
